@@ -19,7 +19,7 @@ def custom_key(f):
 
 def print_directory_contents(s_path, level):
     start_dir = pathlib.Path(s_path)
-    print('-'*level + ' ' + start_dir.name)
+    print(f'{"-"*level}{" " if level else ""}{start_dir.name}')
     if start_dir.is_dir():
         files = [file for file in start_dir.iterdir()]
         files.sort(key=custom_key)
@@ -28,4 +28,4 @@ def print_directory_contents(s_path, level):
 
 
 if __name__ == '__main__':
-    print_directory_contents('D:\#distrib\!Internet', 0)
+    print_directory_contents('D:\\', 0)
