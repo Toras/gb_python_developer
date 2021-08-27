@@ -27,7 +27,7 @@ class ItemDiscount:
 
 
 class ItemDiscountReport(ItemDiscount):
-    def __init__(self, discount, *args):
+    def __init__(self, discount=0, *args):
         self._discount = discount
         super(ItemDiscountReport, self).__init__(*args)
 
