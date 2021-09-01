@@ -12,3 +12,28 @@
 Во второй функции необходимо реализовать открытие файла и простой построчный вывод содержимого.
 Вся программа должна запускаться по вызову первой функции.
 """
+import os
+
+
+def create_and_open(filename):
+    if os.path.exists(filename):
+        print('файл существует')
+    with open(filename, mode='w') as filewrite:
+        list1 = [chr(i) for i in range(65, 91)]
+        list2 = [i for i in range(65, 91)]
+        list3 = zip(list1, list2)
+        for el in list3:
+            filewrite.writelines(f'{el[0]}: {el[1]}\n')
+    read_and_print(filename)
+
+
+def read_and_print(filename):
+    with open(filename, mode='r') as fileread:
+        list1 = fileread.read()
+        list1 = list1.split(sep='\n')
+        print(*list1, sep='\n')
+
+
+if __name__ == '__main__':
+    file = '1.txt'
+    create_and_open(file)
